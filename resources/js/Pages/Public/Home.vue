@@ -2,212 +2,276 @@
   <PublicLayout>
     <Head title="Accueil" />
 
-    <!-- ═══════════════════════════════════════════════════
+    <!-- ══════════════════════
          HERO
-    ═══════════════════════════════════════════════════ -->
-    <section style="position:relative; min-height:100vh; display:flex; align-items:center; background:#0A1628; overflow:hidden;">
+    ══════════════════════ -->
+    <section style="position:relative; min-height:100vh; display:flex; align-items:center; overflow:hidden; background:white;">
 
-      <!-- Orbes décoratifs animés -->
-      <div class="orb orb-1" />
-      <div class="orb orb-2" />
-      <div class="orb orb-3" />
+      <!-- Canvas -->
+      <canvas ref="canvasRef" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.5; pointer-events:none;" />
 
-      <!-- Grille de fond -->
-      <div class="hero-grid" />
+      <!-- Gradient mesh -->
+      <div style="position:absolute; inset:0; pointer-events:none; overflow:hidden;">
+        <div style="position:absolute; width:800px; height:800px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 65%); top:-300px; right:-200px; animation:mesh-1 14s ease-in-out infinite;" />
+        <div style="position:absolute; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 65%); bottom:-200px; left:-100px; animation:mesh-2 18s ease-in-out infinite;" />
+        <div style="position:absolute; width:400px; height:400px; border-radius:50%; background:radial-gradient(circle, rgba(13,27,42,0.04) 0%, transparent 65%); top:45%; left:35%; animation:mesh-3 12s ease-in-out infinite;" />
+      </div>
 
-      <!-- Bande dorée verticale décorative -->
-      <div style="position:absolute; left:0; top:0; bottom:0; width:3px; background:linear-gradient(to bottom, transparent, #C9A84C, transparent);" />
+      <!-- Grille de points -->
+      <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(13,27,42,0.06) 1px, transparent 1px); background-size:44px 44px; pointer-events:none; -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%); mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);" />
 
-      <div style="position:relative; z-index:10; max-width:1320px; margin:0 auto; padding:120px 3rem 80px; width:100%;">
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center;">
+      <!-- Ligne déco gauche -->
+      <div style="position:absolute; left:0; top:15%; bottom:15%; width:3px; background:linear-gradient(to bottom, transparent, #C9A84C 30%, #E2C97E 70%, transparent); border-radius:2px; pointer-events:none;" />
 
-          <!-- Colonne gauche -->
+      <div style="position:relative; z-index:10; max-width:1400px; margin:0 auto; padding:140px 3rem 80px; width:100%;">
+        <div style="display:grid; grid-template-columns:1fr 420px; gap:80px; align-items:center;">
+
+          <!-- Gauche -->
           <div>
             <!-- Badge -->
-            <div class="fade-up" style="--d:0s; display:inline-flex; align-items:center; gap:10px; background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.3); border-radius:100px; padding:8px 18px; margin-bottom:36px;">
-              <div style="width:6px; height:6px; border-radius:50%; background:#C9A84C; box-shadow:0 0 8px #C9A84C;" />
-              <span style="color:#C9A84C; font-size:13px; font-weight:600; letter-spacing:0.05em;">Centre de formation — La Réunion</span>
+            <div data-reveal style="display:inline-flex; align-items:center; gap:10px; margin-bottom:32px; padding:8px 18px 8px 8px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.25); border-radius:100px;">
+              <div style="width:26px; height:26px; border-radius:50%; background:linear-gradient(135deg,#C9A84C,#E2C97E); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                <PhStar style="width:13px; height:13px; color:#0D1B2A;" weight="fill" />
+              </div>
+              <span style="font-size:13px; font-weight:600; color:#A07828; letter-spacing:0.02em;">Centre de formation N°1 à La Réunion</span>
             </div>
 
-            <!-- Titre principal -->
-            <h1 class="fade-up" style="--d:0.1s; font-size:clamp(48px,5.5vw,80px); font-weight:900; line-height:1.0; color:#ffffff; margin-bottom:28px; letter-spacing:-0.03em;">
-              Formez-vous<br>
-              <span style="background:linear-gradient(135deg, #C9A84C 0%, #E8C97E 40%, #C9A84C 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">avec excellence</span>
+            <!-- Titre massif -->
+            <h1 data-reveal style="font-family:'Syne',sans-serif; font-weight:800; line-height:0.95; letter-spacing:-0.04em; margin-bottom:28px;">
+              <span style="display:block; font-size:clamp(52px,7vw,96px); color:#0D1B2A;">Formez-vous</span>
+              <span style="display:block; font-size:clamp(52px,7vw,96px);" class="text-gradient-gold">avec audace.</span>
+              <span style="display:block; font-size:clamp(52px,7vw,96px);" class="text-outline-navy">Progressez.</span>
             </h1>
 
-            <p class="fade-up" style="--d:0.2s; font-size:18px; line-height:1.75; color:rgba(255,255,255,0.55); max-width:480px; margin-bottom:44px;">
-              Développez vos compétences professionnelles et académiques avec nos formations certifiantes
-              dispensées par des experts à La Réunion.
+            <p data-reveal style="--delay:0.1s; font-size:18px; color:rgba(13,27,42,0.55); line-height:1.8; max-width:500px; margin-bottom:44px;">
+              Développez vos compétences avec des experts certifiés.
+              Formations professionnelles et soutien scolaire à La Réunion.
             </p>
 
-            <!-- CTAs -->
-            <div class="fade-up" style="--d:0.3s; display:flex; gap:16px; flex-wrap:wrap; margin-bottom:64px;">
-              <Link :href="route('formations.index')" class="cta-primary">
-                <PhGraduationCap style="width:18px; height:18px;" />
-                Voir les formations
+            <div data-reveal style="--delay:0.2s; display:flex; gap:14px; flex-wrap:wrap; margin-bottom:64px;">
+              <Link :href="route('formations.index')" class="btn-gold">
+                <PhGraduationCap style="width:17px; height:17px;" />
+                Explorer les formations
               </Link>
-              <Link :href="route('contact')" class="cta-outline">
-                <PhPhone style="width:18px; height:18px;" />
+              <Link :href="route('contact')" class="btn-outline">
                 Nous contacter
+                <PhArrowRight style="width:15px; height:15px;" />
               </Link>
             </div>
 
             <!-- Mini stats -->
-            <div class="fade-up" style="--d:0.4s; display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid rgba(255,255,255,0.08); padding-top:36px;">
-              <div v-for="(s, i) in heroMiniStats" :key="s.label" style="text-align:center; padding:0 20px;" :style="i > 0 ? 'border-left:1px solid rgba(255,255,255,0.08)' : ''">
-                <div style="font-size:32px; font-weight:900; color:white; line-height:1.1;">{{ s.value }}</div>
-                <div style="font-size:12px; color:rgba(255,255,255,0.4); margin-top:4px; letter-spacing:0.03em;">{{ s.label }}</div>
+            <div data-reveal style="--delay:0.3s; display:flex; padding-top:32px; border-top:1px solid rgba(13,27,42,0.08);">
+              <div v-for="(s, i) in heroStats" :key="s.label" style="flex:1; position:relative;">
+                <div v-if="i > 0" style="position:absolute; left:0; top:10%; bottom:10%; width:1px; background:rgba(13,27,42,0.08);" />
+                <div :style="i > 0 ? 'padding-left:32px;' : 'padding-right:32px;'">
+                  <div style="font-family:'Syne',sans-serif; font-size:34px; font-weight:800; color:#0D1B2A; line-height:1; letter-spacing:-0.03em;" class="text-gradient-gold">
+                    {{ s.value }}
+                  </div>
+                  <div style="font-size:12px; color:rgba(13,27,42,0.4); margin-top:5px; letter-spacing:0.04em; text-transform:uppercase; font-weight:600;">{{ s.label }}</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Colonne droite — cartes flottantes -->
-          <div class="fade-up" style="--d:0.2s; position:relative; display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-            <div
-              v-for="(card, i) in heroCards"
-              :key="card.label"
-              class="hero-card"
-              :style="i % 2 === 1 ? 'margin-top:32px;' : ''"
-            >
-              <div style="width:44px; height:44px; border-radius:12px; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; margin-bottom:16px;">
-                <component :is="card.icon" style="width:22px; height:22px; color:#C9A84C;" weight="bold" />
+          <!-- Droite — cartes flottantes -->
+          <div data-reveal style="--delay:0.2s; position:relative; height:520px;" class="hero-right">
+
+            <!-- Card principale -->
+            <div style="position:absolute; top:0; right:0; width:320px; background:white; border:1.5px solid rgba(201,168,76,0.2); border-radius:24px; padding:28px; box-shadow:0 20px 60px rgba(13,27,42,0.1), 0 0 0 1px rgba(201,168,76,0.08);" class="float-anim">
+              <!-- Top card -->
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+                <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,#C9A84C,#E2C97E); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 4px 12px rgba(201,168,76,0.35);">
+                  <PhGraduationCap style="width:22px; height:22px; color:#0D1B2A;" weight="fill" />
+                </div>
+                <div style="flex:1; min-width:0;">
+                  <div style="font-family:'Syne',sans-serif; font-size:14px; font-weight:700; color:#0D1B2A; line-height:1.3;">Développeur Web</div>
+                  <div style="font-size:12px; color:rgba(13,27,42,0.45);">Titre Professionnel</div>
+                </div>
+                <span style="background:rgba(0,180,100,0.1); border:1px solid rgba(0,180,100,0.25); color:#059669; font-size:11px; font-weight:700; padding:3px 10px; border-radius:100px; flex-shrink:0;">Certifiant</span>
               </div>
-              <div style="font-size:15px; font-weight:700; color:white; margin-bottom:6px;">{{ card.label }}</div>
-              <div style="font-size:13px; color:rgba(255,255,255,0.4); line-height:1.5;">{{ card.desc }}</div>
+
+              <!-- Progress -->
+              <div style="margin-bottom:8px; display:flex; justify-content:space-between; font-size:12px; color:rgba(13,27,42,0.45);">
+                <span>Progression</span>
+                <span style="font-weight:700; color:#C9A84C;">72%</span>
+              </div>
+              <div style="height:5px; background:rgba(13,27,42,0.07); border-radius:3px; overflow:hidden; margin-bottom:20px;">
+                <div style="height:100%; width:72%; background:linear-gradient(90deg,#C9A84C,#E2C97E); border-radius:3px;" />
+              </div>
+
+              <!-- Modules -->
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <div v-for="mod in courseModules" :key="mod" style="display:flex; align-items:center; gap:10px; padding:8px 12px; background:#FAF8F3; border-radius:10px;">
+                  <PhCheckCircle style="width:14px; height:14px; color:#C9A84C; flex-shrink:0;" weight="fill" />
+                  <span style="font-size:12px; color:rgba(13,27,42,0.65); font-weight:500;">{{ mod }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card avis -->
+            <div style="position:absolute; bottom:60px; left:0; width:260px; background:white; border:1.5px solid rgba(201,168,76,0.15); border-radius:20px; padding:22px; box-shadow:0 12px 40px rgba(13,27,42,0.1); animation:float 8s ease-in-out infinite 2s;">
+              <div style="display:flex; gap:2px; margin-bottom:12px;">
+                <PhStar v-for="i in 5" :key="i" style="width:14px; height:14px; color:#C9A84C;" weight="fill" />
+              </div>
+              <p style="font-size:13px; color:rgba(13,27,42,0.65); line-height:1.6; margin-bottom:14px; font-style:italic;">"La meilleure décision de ma carrière professionnelle."</p>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="width:28px; height:28px; border-radius:50%; background:linear-gradient(135deg,#C9A84C,#E2C97E); display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-size:12px; font-weight:800; color:#0D1B2A; flex-shrink:0;">S</div>
+                <span style="font-size:12px; font-weight:600; color:rgba(13,27,42,0.5);">Sarah M. — Développeuse</span>
+              </div>
+            </div>
+
+            <!-- Floating badge -->
+            <div style="position:absolute; top:200px; left:-20px; background:white; border:1.5px solid rgba(201,168,76,0.2); border-radius:100px; padding:8px 16px; display:flex; align-items:center; gap:8px; box-shadow:0 8px 24px rgba(13,27,42,0.1); animation-delay:1s;" class="float-anim">
+              <div style="width:8px; height:8px; border-radius:50%; background:#059669; box-shadow:0 0 10px rgba(5,150,105,0.5);" />
+              <span style="font-size:12px; font-weight:700; color:#0D1B2A;">320+ apprenants formés</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Scroll indicator -->
-      <div style="position:absolute; bottom:40px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(255,255,255,0.25);" class="bounce">
-        <span style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase;">Découvrir</span>
-        <PhCaretDown style="width:18px; height:18px;" />
+      <div style="position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px;" class="float-anim">
+        <div style="width:1px; height:44px; background:linear-gradient(to bottom, transparent, rgba(201,168,76,0.6));" />
+        <span style="font-size:10px; color:rgba(13,27,42,0.3); letter-spacing:0.2em; text-transform:uppercase; font-weight:600;">Scroll</span>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         BANDE STATS
-    ═══════════════════════════════════════════════════ -->
-    <section style="background:linear-gradient(135deg, #C9A84C 0%, #B8943C 50%, #C9A84C 100%); padding:48px 0; position:relative; overflow:hidden;">
-      <div style="position:absolute; inset:0; opacity:0.06; background-image:radial-gradient(circle, #000 1px, transparent 1px); background-size:24px 24px;" />
-      <div style="max-width:1320px; margin:0 auto; padding:0 3rem; display:grid; grid-template-columns:repeat(4,1fr); gap:40px; position:relative; z-index:1;">
-        <div v-for="s in statsData" :key="s.label" style="text-align:center;">
-          <div style="font-size:clamp(36px,4vw,56px); font-weight:900; color:#0D1B2A; line-height:1; letter-spacing:-0.03em;">
-            {{ s.value }}<span style="font-size:0.6em; opacity:0.7;">{{ s.suffix }}</span>
-          </div>
-          <div style="font-size:13px; font-weight:600; color:rgba(13,27,42,0.65); margin-top:8px; letter-spacing:0.02em;">{{ s.label }}</div>
-        </div>
+    <!-- ══════════════════════
+         MARQUEE
+    ══════════════════════ -->
+    <div style="padding:22px 0; background:#FAF8F3; border-top:1px solid rgba(13,27,42,0.06); border-bottom:1px solid rgba(13,27,42,0.06); overflow:hidden;">
+      <div class="marquee-inner">
+        <span v-for="i in 8" :key="i" style="display:flex; align-items:center; gap:20px; flex-shrink:0; padding:0 20px;">
+          <span style="font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:rgba(13,27,42,0.25); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">Formation Professionnelle</span>
+          <span style="width:5px; height:5px; border-radius:50%; background:#C9A84C; flex-shrink:0;" />
+          <span style="font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:rgba(13,27,42,0.25); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">Certification Reconnue</span>
+          <span style="width:5px; height:5px; border-radius:50%; background:#C9A84C; flex-shrink:0;" />
+          <span style="font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:rgba(13,27,42,0.25); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">La Réunion</span>
+          <span style="width:5px; height:5px; border-radius:50%; background:#C9A84C; flex-shrink:0;" />
+          <span style="font-family:'Syne',sans-serif; font-size:13px; font-weight:700; color:rgba(13,27,42,0.25); letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;">Soutien Scolaire</span>
+          <span style="width:5px; height:5px; border-radius:50%; background:#0D1B2A; opacity:0.2; flex-shrink:0;" />
+        </span>
       </div>
-    </section>
+    </div>
 
-    <!-- ═══════════════════════════════════════════════════
-         FORMATIONS EN VEDETTE
-    ═══════════════════════════════════════════════════ -->
-    <section style="background:#ffffff; padding:100px 0;">
-      <div style="max-width:1320px; margin:0 auto; padding:0 3rem;">
+    <!-- ══════════════════════
+         STATS BENTO
+    ══════════════════════ -->
+    <section style="background:#FAF8F3; padding:100px 0;">
+      <div style="max-width:1400px; margin:0 auto; padding:0 3rem;">
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
 
-        <!-- Header section -->
-        <div style="display:flex; flex-direction:column; align-items:center; text-align:center; margin-bottom:72px;">
-          <div class="section-badge fade-up" style="--d:0s;">
-            <PhGraduationCap style="width:14px; height:14px; color:#C9A84C;" />
-            <span>Nos formations</span>
-          </div>
-          <h2 class="fade-up" style="--d:0.1s; font-size:clamp(36px,4vw,60px); font-weight:900; color:#0D1B2A; margin:20px 0 20px; letter-spacing:-0.03em; line-height:1.1;">
-            Des formations <span style="background:linear-gradient(135deg,#C9A84C,#E8C97E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">certifiantes</span>
-          </h2>
-          <p class="fade-up" style="--d:0.2s; font-size:18px; color:rgba(13,27,42,0.55); max-width:520px; line-height:1.7;">
-            Choisissez parmi notre catalogue de formations professionnelles conçues pour répondre
-            aux besoins du marché réunionnais.
-          </p>
-        </div>
-
-        <!-- Cards ou état vide -->
-        <div v-if="featuredFormations?.length" style="display:grid; grid-template-columns:repeat(1,1fr); gap:28px;">
-          <!-- <FormationCard
-            v-for="formation in featuredFormations"
-            :key="formation.id"
-            :formation="formation"
-          />
-        </div> -->
-          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:52px;">
-            <FormationCard
-              v-for="formation in featuredFormations"
-              :key="formation.id"
-              :formation="formation"
-            />
-          </div>
-        </div>
-
-        <!-- État vide premium -->
-        <div v-else style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
           <div
-            v-for="i in 3"
-            :key="i"
-            class="formation-placeholder fade-up"
-            :style="`--d:${i*0.1}s`"
+            v-for="(stat, i) in statsData"
+            :key="stat.label"
+            data-reveal
+            :data-delay="`${i * 0.08}s`"
+            style="border-radius:24px; padding:36px 28px; position:relative; overflow:hidden; transition:all 0.35s cubic-bezier(0.16,1,0.3,1);"
+            :style="i === 0
+              ? 'background:linear-gradient(135deg,#0D1B2A,#1A2D42); border:1px solid rgba(201,168,76,0.15);'
+              : 'background:white; border:1.5px solid rgba(13,27,42,0.08);'"
+            class="stat-card"
           >
-            <div style="height:200px; background:linear-gradient(135deg, rgba(201,168,76,0.08), rgba(201,168,76,0.03)); border-radius:16px; margin-bottom:24px; display:flex; align-items:center; justify-content:center; border:1px dashed rgba(201,168,76,0.2);">
-              <PhGraduationCap style="width:40px; height:40px; color:rgba(201,168,76,0.3);" />
+            <div style="position:absolute; top:-30px; right:-30px; width:100px; height:100px; border-radius:50%; filter:blur(30px); pointer-events:none;" :style="i === 0 ? 'background:rgba(201,168,76,0.25);' : 'background:rgba(201,168,76,0.12);'" />
+            <div style="font-family:'Syne',sans-serif; font-size:50px; font-weight:800; line-height:1; letter-spacing:-0.03em; margin-bottom:8px;" :class="i === 0 ? 'text-gradient-gold' : 'text-gradient-gold'">
+              {{ stat.value }}<span style="font-size:0.55em; opacity:0.8;">{{ stat.suffix }}</span>
             </div>
-            <div style="height:12px; background:#F4F1EC; border-radius:6px; margin-bottom:12px; width:40%;" />
-            <div style="height:20px; background:#F4F1EC; border-radius:6px; margin-bottom:8px; width:90%;" />
-            <div style="height:20px; background:#F4F1EC; border-radius:6px; margin-bottom:8px; width:70%;" />
-            <div style="height:14px; background:#F4F1EC; border-radius:6px; margin-bottom:24px; width:55%;" />
-            <div style="height:44px; background:linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.08)); border-radius:100px; border:1px dashed rgba(201,168,76,0.3);" />
+            <div style="font-size:13px; letter-spacing:0.04em; text-transform:uppercase; font-weight:600;" :style="i === 0 ? 'color:rgba(255,255,255,0.45);' : 'color:rgba(13,27,42,0.45);'">
+              {{ stat.label }}
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div style="text-align:center; margin-top:52px;">
-          <Link :href="route('formations.index')" class="cta-secondary">
-            <PhArrowRight style="width:18px; height:18px;" />
-            Voir toutes les formations
+    <!-- ══════════════════════
+         FORMATIONS
+    ══════════════════════ -->
+    <section style="background:white; padding:120px 0; position:relative; overflow:hidden;">
+      <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);" />
+
+      <div style="max-width:1400px; margin:0 auto; padding:0 3rem;">
+
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:64px; flex-wrap:wrap; gap:24px;">
+          <div>
+            <div data-reveal style="display:inline-flex; align-items:center; gap:8px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); border-radius:100px; padding:6px 14px; margin-bottom:18px;">
+              <div style="width:6px; height:6px; border-radius:50%; background:#C9A84C; box-shadow:0 0 8px rgba(201,168,76,0.7);" />
+              <span style="font-size:11px; font-weight:700; color:#A07828; letter-spacing:0.08em; text-transform:uppercase;">Catalogue</span>
+            </div>
+            <h2 data-reveal style="font-family:'Syne',sans-serif; font-size:clamp(36px,4.5vw,60px); font-weight:800; color:#0D1B2A; letter-spacing:-0.03em; line-height:1.05; margin:0;">
+              Des formations<br>
+              <span class="text-gradient-gold">qui transforment</span>
+            </h2>
+          </div>
+          <Link data-reveal :href="route('formations.index')" class="btn-outline">
+            Voir tout le catalogue
+            <PhArrowRight style="width:15px; height:15px;" />
           </Link>
         </div>
+
+        <div v-if="featuredFormations?.length" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+          <FormationCardWG
+            v-for="(formation, i) in featuredFormations"
+            :key="formation.id"
+            :formation="formation"
+            :index="i"
+          />
+        </div>
+        <div v-else style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+          <div v-for="i in 3" :key="i" style="background:#FAF8F3; border:1.5px solid rgba(13,27,42,0.06); border-radius:24px; height:420px; overflow:hidden; position:relative;">
+            <div style="height:220px; background:linear-gradient(90deg,#EDE9DF 25%,#E4DFD3 50%,#EDE9DF 75%); background-size:200% 100%;" class="shimmer-anim" />
+            <div style="padding:24px; display:flex; flex-direction:column; gap:10px;">
+              <div style="height:10px; border-radius:5px; background:#EDE9DF; width:40%;" />
+              <div style="height:18px; border-radius:5px; background:#EDE9DF;" />
+              <div style="height:18px; border-radius:5px; background:#EDE9DF; width:70%;" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         SECTION "POURQUOI NOUS CHOISIR"
-    ═══════════════════════════════════════════════════ -->
-    <section style="background:#0A1628; padding:120px 0; position:relative; overflow:hidden;">
-      <div class="orb orb-2" style="opacity:0.4;" />
-      <div style="max-width:1320px; margin:0 auto; padding:0 3rem; position:relative; z-index:1;">
+    <!-- ══════════════════════
+         POURQUOI NOUS
+    ══════════════════════ -->
+    <section style="background:#FAF8F3; padding:120px 0; position:relative; overflow:hidden;">
+      <div style="position:absolute; right:0; top:50%; transform:translateY(-50%); width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events:none;" />
+
+      <div style="max-width:1400px; margin:0 auto; padding:0 3rem;">
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:100px; align-items:center;">
 
-          <!-- Gauche : texte -->
           <div>
-            <div class="section-badge section-badge-dark fade-up" style="--d:0s; margin-bottom:28px;">
-              <PhShieldCheck style="width:14px; height:14px; color:#C9A84C;" />
-              <span>Notre approche</span>
+            <div data-reveal style="display:inline-flex; align-items:center; gap:8px; background:rgba(13,27,42,0.05); border:1px solid rgba(13,27,42,0.1); border-radius:100px; padding:6px 14px; margin-bottom:24px;">
+              <PhShieldCheck style="width:13px; height:13px; color:#C9A84C;" weight="fill" />
+              <span style="font-size:11px; font-weight:700; color:rgba(13,27,42,0.5); letter-spacing:0.08em; text-transform:uppercase;">Notre approche</span>
             </div>
-            <h2 class="fade-up" style="--d:0.1s; font-size:clamp(32px,3.5vw,52px); font-weight:900; color:white; letter-spacing:-0.03em; line-height:1.1; margin-bottom:24px;">
-              L'excellence au cœur<br>de chaque <span style="color:#C9A84C;">parcours</span>
+            <h2 data-reveal style="font-family:'Syne',sans-serif; font-size:clamp(32px,4vw,52px); font-weight:800; color:#0D1B2A; letter-spacing:-0.03em; line-height:1.1; margin-bottom:24px;">
+              L'excellence<br>n'est pas<br>
+              <span class="text-gradient-gold">une option.</span>
             </h2>
-            <p class="fade-up" style="--d:0.2s; font-size:17px; color:rgba(255,255,255,0.5); line-height:1.8; margin-bottom:48px;">
-              Nous accompagnons chaque apprenant avec une pédagogie adaptée,
-              des formateurs certifiés et un suivi personnalisé tout au long de la formation.
+            <p data-reveal style="--delay:0.1s; font-size:16px; color:rgba(13,27,42,0.55); line-height:1.8; margin-bottom:44px; max-width:420px;">
+              Chaque programme est conçu avec des experts du terrain pour une montée en compétences réelle et immédiatement applicable.
             </p>
-            <Link :href="route('contact')" class="cta-primary fade-up" style="--d:0.3s; display:inline-flex;">
-              <PhEnvelope style="width:18px; height:18px;" />
-              Prendre contact
+            <Link data-reveal :href="route('contact')" class="btn-gold">
+              <PhEnvelope style="width:16px; height:16px;" />
+              Démarrer ma formation
             </Link>
           </div>
 
-          <!-- Droite : liste des avantages -->
-          <div style="display:flex; flex-direction:column; gap:20px;">
+          <div style="display:flex; flex-direction:column; gap:14px;">
             <div
-              v-for="(avantage, i) in avantages"
-              :key="avantage.title"
-              class="avantage-card fade-up"
-              :style="`--d:${i*0.1}s`"
+              v-for="(av, i) in avantages"
+              :key="av.title"
+              data-reveal
+              :data-delay="`${i * 0.1}s`"
+              style="display:flex; align-items:flex-start; gap:18px; padding:22px; border-radius:18px; border:1.5px solid rgba(13,27,42,0.07); background:white; transition:all 0.35s cubic-bezier(0.16,1,0.3,1);"
+              class="avantage-row"
             >
-              <div style="width:48px; height:48px; border-radius:14px; background:rgba(201,168,76,0.12); border:1px solid rgba(201,168,76,0.2); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                <component :is="avantage.icon" style="width:22px; height:22px; color:#C9A84C;" weight="fill" />
+              <div style="width:46px; height:46px; border-radius:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.2);">
+                <component :is="av.icon" style="width:22px; height:22px; color:#C9A84C;" weight="fill" />
               </div>
               <div>
-                <div style="font-size:15px; font-weight:700; color:white; margin-bottom:4px;">{{ avantage.title }}</div>
-                <div style="font-size:13px; color:rgba(255,255,255,0.45); line-height:1.6;">{{ avantage.desc }}</div>
+                <div style="font-family:'Syne',sans-serif; font-size:15px; font-weight:700; color:#0D1B2A; margin-bottom:4px;">{{ av.title }}</div>
+                <div style="font-size:13px; color:rgba(13,27,42,0.5); line-height:1.65;">{{ av.desc }}</div>
               </div>
             </div>
           </div>
@@ -215,156 +279,101 @@
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
+    <!-- ══════════════════════
          TÉMOIGNAGES
-    ═══════════════════════════════════════════════════ -->
-    <section style="background:#FAF7F2; padding:120px 0; overflow:hidden;">
-      <div style="max-width:1320px; margin:0 auto; padding:0 3rem;">
+    ══════════════════════ -->
+    <section style="background:white; padding:120px 0; position:relative; overflow:hidden;">
+      <div style="position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%); pointer-events:none;" />
 
-        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:72px; flex-wrap:wrap; gap:24px;">
-          <div>
-            <div class="section-badge fade-up" style="--d:0s; margin-bottom:20px;">
-              <PhStar style="width:14px; height:14px; color:#C9A84C;" weight="fill" />
-              <span>Témoignages</span>
-            </div>
-            <h2 class="fade-up" style="--d:0.1s; font-size:clamp(32px,4vw,56px); font-weight:900; color:#0D1B2A; letter-spacing:-0.03em; line-height:1.1; margin:0;">
-              Ce que disent<br>
-              <span style="background:linear-gradient(135deg,#C9A84C,#E8C97E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">nos apprenants</span>
-            </h2>
+      <div style="max-width:1400px; margin:0 auto; padding:0 3rem;">
+        <div style="text-align:center; margin-bottom:72px;">
+          <div data-reveal style="display:inline-flex; align-items:center; gap:8px; background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2); border-radius:100px; padding:6px 14px; margin-bottom:20px;">
+            <PhStar style="width:13px; height:13px; color:#C9A84C;" weight="fill" />
+            <span style="font-size:11px; font-weight:700; color:#A07828; letter-spacing:0.08em; text-transform:uppercase;">Témoignages</span>
           </div>
-          <Link :href="route('reviews.index')" class="cta-secondary fade-up" style="--d:0.2s; display:inline-flex;">
-            Tous les avis
-            <PhArrowRight style="width:16px; height:16px;" />
-          </Link>
+          <h2 data-reveal style="font-family:'Syne',sans-serif; font-size:clamp(32px,4vw,56px); font-weight:800; color:#0D1B2A; letter-spacing:-0.03em; line-height:1.05; margin:0;">
+            Ils nous font confiance
+          </h2>
         </div>
 
-        <!-- Cards avis ou état vide -->
-        <div v-if="featuredReviews?.length" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
-          <ReviewCard
-            v-for="review in featuredReviews"
-            :key="review.id"
-            :review="review"
-          />
+        <div v-if="featuredReviews?.length" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px; align-items:start;">
+          <ReviewCardWG v-for="review in featuredReviews" :key="review.id" :review="review" />
+        </div>
+        <div v-else style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+          <div v-for="i in 3" :key="i" style="background:#FAF8F3; border:1.5px solid rgba(13,27,42,0.07); border-radius:20px; height:240px;" />
         </div>
 
-        <div v-else style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
-          <div
-            v-for="i in 3"
-            :key="i"
-            class="review-placeholder fade-up"
-            :style="`--d:${i*0.1}s`"
-          >
-            <div style="display:flex; gap:4px; margin-bottom:20px;">
-              <PhStar v-for="j in 5" :key="j" style="width:16px; height:16px; color:#C9A84C;" weight="fill" />
-            </div>
-            <div style="height:14px; background:#F4F1EC; border-radius:6px; margin-bottom:8px;" />
-            <div style="height:14px; background:#F4F1EC; border-radius:6px; margin-bottom:8px; width:80%;" />
-            <div style="height:14px; background:#F4F1EC; border-radius:6px; width:60%; margin-bottom:32px;" />
-            <div style="display:flex; align-items:center; gap:12px; padding-top:20px; border-top:1px solid rgba(13,27,42,0.06);">
-              <div style="width:40px; height:40px; border-radius:50%; background:#E8E4DE;" />
-              <div>
-                <div style="height:12px; background:#E8E4DE; border-radius:6px; width:100px; margin-bottom:6px;" />
-                <div style="height:10px; background:#E8E4DE; border-radius:6px; width:70px;" />
-              </div>
-            </div>
-          </div>
+        <div style="text-align:center; margin-top:52px;">
+          <Link :href="route('reviews.index')" class="btn-outline">Tous les témoignages <PhArrowRight style="width:15px; height:15px;" /></Link>
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
-         ARTICLES — LA VIE DU CENTRE
-    ═══════════════════════════════════════════════════ -->
-    <section style="background:#ffffff; padding:120px 0;">
-      <div style="max-width:1320px; margin:0 auto; padding:0 3rem;">
-
-        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:72px; flex-wrap:wrap; gap:24px;">
+    <!-- ══════════════════════
+         ARTICLES
+    ══════════════════════ -->
+    <section style="background:#FAF8F3; padding:120px 0;">
+      <div style="max-width:1400px; margin:0 auto; padding:0 3rem;">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:64px; flex-wrap:wrap; gap:24px;">
           <div>
-            <div class="section-badge fade-up" style="--d:0s; margin-bottom:20px;">
-              <PhNewspaper style="width:14px; height:14px; color:#C9A84C;" />
-              <span>Actualités</span>
+            <div data-reveal style="display:inline-flex; align-items:center; gap:8px; background:rgba(13,27,42,0.05); border:1px solid rgba(13,27,42,0.1); border-radius:100px; padding:6px 14px; margin-bottom:18px;">
+              <PhNewspaper style="width:13px; height:13px; color:#C9A84C;" />
+              <span style="font-size:11px; font-weight:700; color:rgba(13,27,42,0.5); letter-spacing:0.08em; text-transform:uppercase;">Actualités</span>
             </div>
-            <h2 class="fade-up" style="--d:0.1s; font-size:clamp(32px,4vw,56px); font-weight:900; color:#0D1B2A; letter-spacing:-0.03em; line-height:1.1; margin:0;">
-              La vie du<br>
-              <span style="background:linear-gradient(135deg,#C9A84C,#E8C97E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">centre</span>
+            <h2 data-reveal style="font-family:'Syne',sans-serif; font-size:clamp(32px,4vw,52px); font-weight:800; color:#0D1B2A; letter-spacing:-0.03em; line-height:1.05; margin:0;">
+              La vie du <span class="text-gradient-gold">centre</span>
             </h2>
           </div>
-          <Link :href="route('articles.index')" class="cta-secondary fade-up" style="--d:0.2s; display:inline-flex;">
-            Tous les articles
-            <PhArrowRight style="width:16px; height:16px;" />
+          <Link :href="route('articles.index')" class="btn-outline" data-reveal>
+            Tous les articles <PhArrowRight style="width:15px; height:15px;" />
           </Link>
         </div>
 
-        <div v-if="latestArticles?.length" style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
-          <ArticleCard
-            v-for="article in latestArticles"
-            :key="article.id"
-            :article="article"
-          />
+        <div v-if="latestArticles?.length" style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:24px; align-items:start;">
+          <ArticleCardWG v-for="(article, i) in latestArticles" :key="article.id" :article="article" :featured="i === 0" />
         </div>
-
-        <div v-else style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
-          <div
-            v-for="i in 3"
-            :key="i"
-            class="article-placeholder fade-up"
-            :style="`--d:${i*0.1}s`"
-          >
-            <div style="height:180px; background:linear-gradient(135deg,#F4F1EC,#EAE6E0); border-radius:16px; margin-bottom:20px; display:flex; align-items:center; justify-content:center;">
-              <PhNewspaper style="width:32px; height:32px; color:rgba(13,27,42,0.15);" />
-            </div>
-            <div style="height:10px; background:#F4F1EC; border-radius:6px; margin-bottom:12px; width:30%;" />
-            <div style="height:18px; background:#F4F1EC; border-radius:6px; margin-bottom:8px;" />
-            <div style="height:18px; background:#F4F1EC; border-radius:6px; margin-bottom:16px; width:75%;" />
-            <div style="height:12px; background:#F4F1EC; border-radius:6px; width:50%;" />
-          </div>
+        <div v-else style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:24px;">
+          <div v-for="i in 3" :key="i" style="background:white; border:1.5px solid rgba(13,27,42,0.07); border-radius:20px; height:320px;" />
         </div>
       </div>
     </section>
 
-    <!-- ═══════════════════════════════════════════════════
+    <!-- ══════════════════════
          CTA FINAL
-    ═══════════════════════════════════════════════════ -->
-    <section style="background:#0A1628; padding:140px 0; position:relative; overflow:hidden;">
-      <div class="orb orb-1" style="opacity:0.3;" />
-      <div class="orb orb-3" style="opacity:0.2;" />
+    ══════════════════════ -->
+    <section style="background:#0D1B2A; padding:140px 0; position:relative; overflow:hidden;">
+      <div style="position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201,168,76,0.12) 0%, transparent 70%); pointer-events:none;" />
+      <div style="position:absolute; top:0; left:10%; right:10%; height:1px; background:linear-gradient(90deg,transparent,rgba(201,168,76,0.5),transparent);" />
 
-      <!-- Ligne dorée décorative top -->
-      <div style="position:absolute; top:0; left:10%; right:10%; height:1px; background:linear-gradient(to right, transparent, rgba(201,168,76,0.4), transparent);" />
+      <!-- Grille de fond -->
+      <div style="position:absolute; inset:0; background-image:radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px); background-size:44px 44px; pointer-events:none; -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%); mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);" />
 
-      <div style="max-width:900px; margin:0 auto; padding:0 3rem; text-align:center; position:relative; z-index:1;">
+      <div style="max-width:1000px; margin:0 auto; padding:0 3rem; text-align:center; position:relative; z-index:1;">
 
-        <div class="section-badge section-badge-dark fade-up" style="--d:0s; margin:0 auto 36px; display:inline-flex;">
-          <PhRocketLaunch style="width:14px; height:14px; color:#C9A84C;" weight="fill" />
-          <span>Commencez dès aujourd'hui</span>
+        <div data-reveal style="margin-bottom:24px;">
+          <span style="font-family:'Syne',sans-serif; font-size:clamp(48px,7vw,96px); font-weight:800; color:white; letter-spacing:-0.04em; line-height:0.9; display:block;">Prêt à</span>
+          <span style="font-family:'Syne',sans-serif; font-size:clamp(48px,7vw,96px); font-weight:800; letter-spacing:-0.04em; line-height:0.9; display:block;" class="text-gradient-gold">transformer</span>
+          <span style="font-family:'Syne',sans-serif; font-size:clamp(48px,7vw,96px); font-weight:800; letter-spacing:-0.04em; line-height:0.9; display:block;" class="text-outline-gold">votre avenir ?</span>
         </div>
 
-        <h2 class="fade-up" style="--d:0.1s; font-size:clamp(40px,5vw,76px); font-weight:900; color:white; letter-spacing:-0.04em; line-height:1.0; margin-bottom:28px;">
-          Prêt à démarrer<br>
-          <span style="background:linear-gradient(135deg, #C9A84C 0%, #E8C97E 50%, #C9A84C 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">votre formation ?</span>
-        </h2>
-
-        <p class="fade-up" style="--d:0.2s; font-size:18px; color:rgba(255,255,255,0.5); line-height:1.75; margin-bottom:52px; max-width:600px; margin-left:auto; margin-right:auto;">
-          Contactez-nous dès aujourd'hui pour découvrir le programme
-          qui correspond à vos objectifs professionnels.
+        <p data-reveal style="--delay:0.1s; font-size:18px; color:rgba(255,255,255,0.45); line-height:1.75; margin:36px auto 52px; max-width:520px;">
+          Rejoignez les 320+ apprenants qui ont choisi Luxy Formation pour booster leur carrière à La Réunion.
         </p>
 
-        <div class="fade-up" style="--d:0.3s; display:flex; justify-content:center; gap:16px; flex-wrap:wrap;">
-          <Link :href="route('contact')" class="cta-primary">
-            <PhEnvelope style="width:18px; height:18px;" />
-            Nous contacter
+        <div data-reveal style="--delay:0.2s; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-bottom:64px;">
+          <Link :href="route('formations.index')" class="btn-gold">
+            <PhGraduationCap style="width:17px; height:17px;" /> Voir les formations
           </Link>
-          <Link :href="route('formations.index')" class="cta-ghost">
-            Voir les formations
-            <PhArrowRight style="width:16px; height:16px;" />
+          <Link :href="route('contact')" class="btn-ghost-white">
+            <PhEnvelope style="width:17px; height:17px;" /> Nous contacter
           </Link>
         </div>
 
-        <!-- Trust indicators -->
-        <div class="fade-up" style="--d:0.4s; display:flex; justify-content:center; align-items:center; gap:40px; margin-top:72px; padding-top:48px; border-top:1px solid rgba(255,255,255,0.06); flex-wrap:wrap;">
-          <div v-for="t in trustItems" :key="t.label" style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.35);">
-            <component :is="t.icon" style="width:18px; height:18px; color:rgba(201,168,76,0.6);" weight="fill" />
-            <span style="font-size:13px; font-weight:500;">{{ t.label }}</span>
+        <!-- Trust row -->
+        <div data-reveal style="--delay:0.3s; display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap; padding-top:48px; border-top:1px solid rgba(255,255,255,0.08);">
+          <div v-for="t in trustItems" :key="t.label" style="display:flex; align-items:center; gap:8px;">
+            <component :is="t.icon" style="width:16px; height:16px; color:#C9A84C;" weight="fill" />
+            <span style="font-size:13px; font-weight:500; color:rgba(255,255,255,0.3);">{{ t.label }}</span>
           </div>
         </div>
       </div>
@@ -374,18 +383,17 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { Head, Link } from '@inertiajs/vue3'
 import { route } from 'ziggy-js'
-import PublicLayout from '@/Layouts/PublicLayout.vue'
-import FormationCard from '@/Components/Public/FormationCard.vue'
-import ReviewCard from '@/Components/Public/ReviewCard.vue'
-import ArticleCard from '@/Components/Public/ArticleCard.vue'
+import PublicLayout    from '@/Layouts/PublicLayout.vue'
+import FormationCardWG from '@/Components/Public/FormationCard.vue'
+import ReviewCardWG    from '@/Components/Public/ReviewCard.vue'
+import ArticleCardWG   from '@/Components/Public/ArticleCard.vue'
 import {
-  PhGraduationCap, PhPhone, PhEnvelope, PhCaretDown, PhArrowRight,
-  PhStar, PhNewspaper, PhShieldCheck, PhRocketLaunch,
-  PhCertificate, PhBriefcase, PhChalkboardTeacher, PhUsers,
-  PhCheckCircle, PhLockSimple, PhHeadset, PhMedal,
+  PhGraduationCap, PhEnvelope, PhArrowRight, PhStar,
+  PhNewspaper, PhShieldCheck, PhCheckCircle,
+  PhCertificate, PhHeadset, PhMedal, PhUsers, PhLockSimple,
 } from '@phosphor-icons/vue'
 
 const props = defineProps({
@@ -395,7 +403,9 @@ const props = defineProps({
   stats:              Object,
 })
 
-const heroMiniStats = computed(() => [
+const canvasRef = ref(null)
+
+const heroStats = computed(() => [
   { value: (props.stats?.formations ?? 0) + '+', label: 'Formations' },
   { value: (props.stats?.reviews ?? 0) + '+',    label: 'Avis clients' },
   { value: (props.stats?.years ?? 8) + ' ans',   label: "D'expertise" },
@@ -408,246 +418,87 @@ const statsData = computed(() => [
   { value: props.stats?.years ?? 8,      suffix: ' ans', label: "D'expertise" },
 ])
 
-const heroCards = [
-  { icon: PhCertificate,       label: 'Certifications',     desc: 'Formations certifiantes reconnues' },
-  { icon: PhChalkboardTeacher, label: 'Formateurs experts', desc: 'Professionnels du secteur' },
-  { icon: PhBriefcase,         label: 'Pro & Scolaire',     desc: 'Tous niveaux et profils' },
-  { icon: PhUsers,             label: 'Suivi personnalisé', desc: 'Accompagnement individuel' },
-]
-
 const avantages = [
-  { icon: PhMedal,         title: 'Formation d\'excellence',    desc: 'Des programmes conçus par des experts certifiés avec des méthodes pédagogiques éprouvées.' },
-  { icon: PhHeadset,       title: 'Accompagnement continu',     desc: 'Un suivi personnalisé tout au long de votre parcours pour maximiser vos chances de succès.' },
-  { icon: PhCertificate,   title: 'Certifications reconnues',   desc: 'Obtenez des certificats valorisés sur le marché du travail réunionnais et national.' },
-  { icon: PhCheckCircle,   title: 'Résultats garantis',         desc: 'Nous nous engageons sur des objectifs pédagogiques clairs et mesurables.' },
+  { icon: PhMedal,       title: 'Formateurs experts certifiés',  desc: 'Des professionnels du secteur avec une expérience terrain solide.' },
+  { icon: PhHeadset,     title: 'Accompagnement personnalisé',    desc: 'Suivi individuel tout au long de votre parcours de formation.' },
+  { icon: PhCertificate, title: 'Certifications reconnues',       desc: 'Des diplômes valorisés par les employeurs réunionnais et nationaux.' },
+  { icon: PhCheckCircle, title: 'Résultats mesurables',           desc: 'Des objectifs pédagogiques clairs et évaluables dès le départ.' },
 ]
 
 const trustItems = [
-  { icon: PhShieldCheck, label: 'Organisme certifié Qualiopi' },
-  { icon: PhUsers,       label: '320+ apprenants formés' },
+  { icon: PhShieldCheck, label: 'Organisme certifié' },
+  { icon: PhUsers,       label: '320+ apprenants' },
   { icon: PhMedal,       label: 'Formateurs experts' },
-  { icon: PhHeadset,     label: 'Support 7j/7' },
+  { icon: PhLockSimple,  label: 'Données sécurisées' },
 ]
+
+const courseModules = ['HTML / CSS avancé', 'JavaScript ES2026', 'Laravel & Vue.js']
+
+// Canvas particles dorés
+onMounted(() => {
+  const canvas = canvasRef.value
+  if (!canvas) return
+  const ctx = canvas.getContext('2d')
+  canvas.width  = window.innerWidth
+  canvas.height = window.innerHeight
+
+  const particles = Array.from({ length: 60 }, () => ({
+    x:  Math.random() * canvas.width,
+    y:  Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.35,
+    vy: (Math.random() - 0.5) * 0.35,
+    r:  Math.random() * 1.5 + 0.3,
+    a:  Math.random() * 0.5 + 0.1,
+  }))
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy
+      if (p.x < 0 || p.x > canvas.width)  p.vx *= -1
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1
+      ctx.beginPath()
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+      ctx.fillStyle = `rgba(201,168,76,${p.a})`
+      ctx.fill()
+    })
+    particles.forEach((a, i) => {
+      particles.slice(i + 1).forEach(b => {
+        const d = Math.hypot(a.x - b.x, a.y - b.y)
+        if (d < 100) {
+          ctx.beginPath()
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y)
+          ctx.strokeStyle = `rgba(201,168,76,${0.06 * (1 - d / 100)})`
+          ctx.lineWidth = 0.5
+          ctx.stroke()
+        }
+      })
+    })
+    requestAnimationFrame(draw)
+  }
+  draw()
+  window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight })
+})
 </script>
 
 <style scoped>
-/* ── Orbes animés ───────────────────────────── */
-.orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-}
-.orb-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
-  top: -200px; right: -100px;
-  animation: float1 8s ease-in-out infinite;
-}
-.orb-2 {
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(26,45,66,0.8) 0%, transparent 70%);
-  bottom: -150px; left: -100px;
-  animation: float2 10s ease-in-out infinite;
-}
-.orb-3 {
-  width: 300px; height: 300px;
-  background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%);
-  top: 50%; left: 40%;
-  animation: float1 12s ease-in-out infinite reverse;
-}
+@keyframes mesh-1  { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(60px,-40px) scale(1.1)} }
+@keyframes mesh-2  { 0%,100%{transform:translate(0,0) scale(1)} 50%{transform:translate(-40px,60px) scale(1.08)} }
+@keyframes mesh-3  { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,40px) scale(1.05)} 66%{transform:translate(-30px,-20px) scale(0.97)} }
+@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
 
-@keyframes float1 {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%       { transform: translateY(-30px) scale(1.05); }
-}
-@keyframes float2 {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50%       { transform: translateY(20px) scale(0.95); }
-}
+.shimmer-anim { animation: shimmer 1.8s ease-in-out infinite; }
+.stat-card:hover  { transform:translateY(-4px); box-shadow:0 12px 40px rgba(201,168,76,0.15) !important; border-color:rgba(201,168,76,0.25) !important; }
+.avantage-row:hover { background:#FAF8F3 !important; border-color:rgba(201,168,76,0.2) !important; transform:translateX(5px); }
 
-/* ── Grille hero ─────────────────────────────── */
-.hero-grid {
-  position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 80px 80px;
-  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+.btn-ghost-white {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: rgba(255,255,255,0.75);
+  font-family: 'Syne', sans-serif; font-weight: 700; font-size: 14px;
+  padding: 14px 28px; border-radius: 100px; border: 1.5px solid rgba(255,255,255,0.2);
+  cursor: none; text-decoration: none; transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
 }
+.btn-ghost-white:hover { background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.4); color:white; transform:translateY(-2px); }
 
-/* ── Animations d'entrée ─────────────────────── */
-.fade-up {
-  animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: var(--d, 0s);
-}
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Bounce scroll indicator ─────────────────── */
-.bounce {
-  animation: bounce 2s ease-in-out infinite;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(8px); }
-}
-
-/* ── Hero cards ──────────────────────────────── */
-.hero-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 28px;
-  backdrop-filter: blur(12px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.hero-card:hover {
-  background: rgba(201,168,76,0.08);
-  border-color: rgba(201,168,76,0.25);
-  transform: translateY(-4px);
-}
-
-/* ── Badges de section ───────────────────────── */
-.section-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.25);
-  border-radius: 100px;
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #C9A84C;
-  letter-spacing: 0.02em;
-}
-.section-badge-dark {
-  background: rgba(201,168,76,0.08);
-  border-color: rgba(201,168,76,0.2);
-}
-
-/* ── CTAs ────────────────────────────────────── */
-.cta-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: #C9A84C;
-  color: #0D1B2A;
-  font-weight: 800;
-  font-size: 15px;
-  padding: 14px 28px;
-  border-radius: 100px;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
-  letter-spacing: 0.01em;
-  cursor: pointer;
-  border: none;
-}
-.cta-primary:hover {
-  background: #E2C97E;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(201,168,76,0.35);
-}
-
-.cta-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: rgba(255,255,255,0.85);
-  font-weight: 700;
-  font-size: 15px;
-  padding: 14px 28px;
-  border-radius: 100px;
-  text-decoration: none;
-  border: 1.5px solid rgba(255,255,255,0.25);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
-}
-.cta-outline:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.5);
-  transform: translateY(-2px);
-}
-
-.cta-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: #0D1B2A;
-  font-weight: 700;
-  font-size: 15px;
-  padding: 12px 24px;
-  border-radius: 100px;
-  text-decoration: none;
-  border: 2px solid rgba(13,27,42,0.2);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
-}
-.cta-secondary:hover {
-  background: #0D1B2A;
-  color: white;
-  border-color: #0D1B2A;
-  transform: translateY(-2px);
-}
-
-.cta-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: transparent;
-  color: rgba(255,255,255,0.7);
-  font-weight: 700;
-  font-size: 15px;
-  padding: 14px 28px;
-  border-radius: 100px;
-  text-decoration: none;
-  border: 1.5px solid rgba(255,255,255,0.15);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  white-space: nowrap;
-}
-.cta-ghost:hover {
-  background: rgba(255,255,255,0.06);
-  border-color: rgba(255,255,255,0.3);
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* ── Avantage cards ──────────────────────────── */
-.avantage-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 24px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 16px;
-  transition: all 0.3s ease;
-}
-.avantage-card:hover {
-  background: rgba(201,168,76,0.06);
-  border-color: rgba(201,168,76,0.15);
-  transform: translateX(6px);
-}
-
-/* ── Placeholders skeletons ──────────────────── */
-.formation-placeholder,
-.review-placeholder,
-.article-placeholder {
-  background: white;
-  border: 1px solid rgba(13,27,42,0.06);
-  border-radius: 20px;
-  padding: 28px;
-}
-
-/* ── Mobile responsive ───────────────────────── */
-@media (max-width: 1024px) {
-  .hero-right-grid { display: none !important; }
-}
+@media (max-width:1100px) { .hero-right { display:none !important; } }
 </style>
