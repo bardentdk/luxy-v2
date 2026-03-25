@@ -8,13 +8,14 @@
         <!-- Brand -->
         <div>
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
-            <div style="width:40px; height:40px; border-radius:10px; background:#C9A84C; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <img src="https://luxyformation.re/wp-content/uploads/2024/03/cropped-horizontal_luxy_logo-300x97.png" alt="" class="w-40">
+            <!-- <div style="width:40px; height:40px; border-radius:10px; background:#C9A84C; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
               <span style="color:#0D1B2A; font-weight:900; font-size:18px;">L</span>
             </div>
             <div>
               <span style="font-weight:800; font-size:17px; display:block; line-height:1.2;">Luxy</span>
               <span style="color:#C9A84C; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; display:block;">Formation</span>
-            </div>
+            </div> -->
           </div>
 
           <p style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.75; margin-bottom:28px; max-width:260px;">

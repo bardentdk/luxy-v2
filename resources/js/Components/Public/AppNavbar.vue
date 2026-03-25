@@ -13,7 +13,8 @@
 
       <!-- Logo -->
       <Link :href="route('home')" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0;">
-        <div style="width:40px; height:40px; border-radius:10px; background:#C9A84C; display:flex; align-items:center; justify-content:center;">
+        <img src="https://luxyformation.re/wp-content/uploads/2024/03/cropped-horizontal_luxy_logo-300x97.png" alt="" class="w-40">
+        <!-- <div style="width:40px; height:40px; border-radius:10px; background:#C9A84C; display:flex; align-items:center; justify-content:center;">
           <span style="color:#0D1B2A; font-weight:900; font-size:18px;">L</span>
         </div>
         <div>
@@ -22,7 +23,7 @@
             :style="{ color: scrolled ? '#0D1B2A' : '#ffffff' }"
           >Luxy</span>
           <span style="color:#C9A84C; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; display:block;">Formation</span>
-        </div>
+        </div> -->
       </Link>
 
       <!-- Menu desktop -->
