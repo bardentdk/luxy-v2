@@ -9,13 +9,15 @@
       <!-- Brand -->
       <div>
         <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
-          <div style="width:38px; height:38px; border-radius:11px; background:linear-gradient(135deg,#C9A84C,#E2C97E); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(201,168,76,0.3);">
+          <!-- <div style="width:38px; height:38px; border-radius:11px; background:linear-gradient(135deg,#C9A84C,#E2C97E); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(201,168,76,0.3);">
             <span style="font-family:'Syne',sans-serif; font-weight:800; font-size:18px; color:#0D1B2A;">L</span>
           </div>
           <div>
             <span style="font-family:'Syne',sans-serif; font-weight:800; font-size:16px; color:white; display:block; line-height:1.1;">Luxy</span>
             <span style="font-size:9px; color:#C9A84C; letter-spacing:0.22em; text-transform:uppercase; display:block; font-weight:700;">Formation</span>
-          </div>
+          </div> -->
+          <img src="https://luxyformation.re/wp-content/uploads/2024/03/cropped-horizontal_luxy_logo-300x97.png" alt="" class="w-40">
+
         </div>
         <p style="font-size:14px; color:rgba(255,255,255,0.4); line-height:1.75; margin-bottom:28px; max-width:260px;">
           Centre de formation professionnelle et soutien scolaire à La Réunion.

@@ -3,13 +3,14 @@
     style="position:fixed; top:0; left:0; right:0; z-index:1000; transition:all 0.5s cubic-bezier(0.16,1,0.3,1);"
     :style="scrolled
       ? 'background:rgba(255,255,255,0.94); backdrop-filter:blur(24px); box-shadow:0 1px 0 rgba(13,27,42,0.07), 0 4px 24px rgba(13,27,42,0.06); padding:10px 0;'
-      : 'background:transparent; padding:22px 0;'"
+      : 'background:rgba(255,255,255,0.94); padding:22px 0;'"
   >
     <nav style="max-width:1400px; margin:0 auto; padding:0 3rem; display:flex; align-items:center; gap:40px;">
 
       <!-- Logo -->
       <Link :href="route('home')" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0;">
-        <div style="position:relative;">
+        <img src="https://luxyformation.re/wp-content/uploads/2024/03/cropped-horizontal_luxy_logo-300x97.png" alt="" class="w-40">
+        <!-- <div style="position:relative;">
           <div style="width:38px; height:38px; border-radius:11px; background:linear-gradient(135deg,#C9A84C,#E2C97E); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; box-shadow:0 4px 16px rgba(201,168,76,0.4);">
             <span style="font-family:'Syne',sans-serif; font-weight:800; font-size:18px; color:#0D1B2A; line-height:1;">L</span>
           </div>
@@ -21,7 +22,7 @@
             :style="scrolled ? 'color:#0D1B2A;' : 'color:#0D1B2A;'"
           >Luxy</span>
           <span style="font-size:9px; color:#C9A84C; letter-spacing:0.22em; text-transform:uppercase; display:block; font-weight:700;">Formation</span>
-        </div>
+        </div> -->
       </Link>
 
       <!-- Menu desktop -->
